@@ -37,7 +37,7 @@ Route::get('/featured-news', [ArticleController::class, 'featuredNews']);
 |--------------------------------------------------------------------------
 */
 
-
+Route::middleware('auth:sanctum')->group(function () {
 
     // Logout
     Route::post('/logout', [UserController::class, 'logout']);
@@ -76,3 +76,5 @@ Route::get('/featured-news', [ArticleController::class, 'featuredNews']);
     Route::get('/edit-tag/{id}', [TagController::class, 'edit']);
     Route::post('/update-tag/{id}', [TagController::class, 'update']);
     Route::delete('/delete-tag/{id}', [TagController::class, 'destroy']);
+
+});
